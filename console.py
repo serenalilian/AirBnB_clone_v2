@@ -44,7 +44,6 @@ class HBNBCommand(cmd.Cmd):
         """Usage: create <class> <key 1>=<value 2> <key 2>=<value 2> ...
         Create a new class instance with given keys/values and print its id.
         """
-<<<<<<< HEAD
         try:
             if not line:
                 raise SyntaxError()
@@ -71,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
             obj.save()
 
 =======
-        _cmd = _cls = _id = _args = ''  # initialize line elements
+     _cmd = _cls = _id = _args = ''  # initialize line elements
 
         # scan for general formating - i.e '.', '(', ')'
         if not ('.' in line and '(' in line and ')' in line):
