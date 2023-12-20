@@ -73,8 +73,7 @@ class DBStorage:
     def reload(self):
         """configuration
         """
-        if not self.__engine.dialect.has_table(self.__engine, "your_table_name"):
-        Base.metadata.create_all(self.__engine)
+        
         sec = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(sec)
         self.__session = Session()

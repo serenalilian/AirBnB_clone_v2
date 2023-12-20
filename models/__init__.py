@@ -17,6 +17,4 @@ if getenv("HBNB_TYPE_STORAGE") == "db":
 else:
     storage = FileStorage()
 
-# Call the function after its definition    
-
 storage.reload()    
