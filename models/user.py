@@ -4,14 +4,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-<<<<<<< HEAD
 from models.review import Review
 from models.place import Place
-=======
-from models.place import Place
-from models.review import Review
 
->>>>>>> d2a36bc3e4ca57741bd6a3133870326e443d1671
 
 class User(BaseModel, Base):
     """This is the class for user
