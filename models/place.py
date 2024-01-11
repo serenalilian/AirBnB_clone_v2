@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" Place Module for HBNB project """
 """This is the place class"""
 from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import BaseModel, Base
@@ -6,6 +7,9 @@ from sqlalchemy import Column, Table, String, Integer, Float, ForeignKey
 from sqlalchemy.orm import relationship
 from os import getenv
 import models
+from sqlalchemy.ext.declarative import declarative_base
+
+
 
 
 place_amenity = Table("place_amenity", Base.metadata,
@@ -17,7 +21,6 @@ place_amenity = Table("place_amenity", Base.metadata,
                              ForeignKey("amenities.id"),
                              primary_key=True,
                              nullable=False))
-
 
 class Place(BaseModel, Base):
     """This is the class for Place
@@ -47,7 +50,7 @@ class Place(BaseModel, Base):
     longitude = Column(Float)
     amenity_ids = []
 
-    if getenv("HBNB_TYPE_STORAGE") == "db":
+   if getenv("HBNB_TYPE_STORAGE") == "db":
         reviews = relationship("Review", cascade='all, delete, delete-orphan',
                                backref="place")
 
