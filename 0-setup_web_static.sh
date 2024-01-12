@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-<<<<<<< HEAD
 #sets up your web servers for the deployment of web_static
 # Check if Nginx is installed, and install it if not
 if [ ! -x "$(command -v nginx)" ]; then
@@ -14,7 +13,7 @@ for dir in "${directories[@]}"; do
     if [ ! -d "$dir" ]; then
         echo "Creating directory: $dir"
         sudo mkdir -p "$dir"
-        sudo chown -R ubuntu:ubuntu "$dir"
+        sudo chown -R root:root "$dir"
     fi
 done
 
@@ -30,7 +29,7 @@ if [ ! -f "$html_file" ]; then
             <h1>This is a test page.</h1>
         </body>
     </html>" | sudo tee "$html_file" > /dev/null
-    sudo chown -R ubuntu:ubuntu "$html_file"
+    sudo chown -R root:root "$html_file"
 fi
 
 # Create or recreate the symbolic link
@@ -58,7 +57,6 @@ fi
 sudo service nginx restart
 
 exit 0
-=======
 # sets up the web servers for the deployment of web_static
 
 sudo apt-get -y update
@@ -70,4 +68,3 @@ sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 sudo chown -hR ubuntu:ubuntu /data/
 sudo sed -i '38i\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n' /etc/nginx/sites-available/default
 sudo service nginx start
->>>>>>> c0ba7f98fbb10929c7c51ef6b9dee5060f167a66
