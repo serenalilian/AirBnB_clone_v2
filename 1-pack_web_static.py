@@ -4,18 +4,18 @@
 from fabric.api import local
 from datetime import datetime
 
-from fabric.decorators import runs_once
-
-
-@runs_once
 def do_pack():
-    '''generates .tgz archive from the contents of the web_static folder'''
+    # Create the versions folder if it doesn't exist
     local("mkdir -p versions")
-    path = ("versions/web_static_{}.tgz"
-            .format(datetime.strftime(datetime.now(), "%Y%m%d%H%M%S")))
-    result = local("tar -cvzf {} web_static"
-                   .format(path))
-
-    if result.failed:
-        return None
-    return path
+    
+    # Generate the timestamp for the archive name
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    
+    # Create the archive path
+    archive_path = "versions/web_static_{}.tgz".format(timestamp)
+    
+    # Create the .tgz archive from the web_static folder
+    local("tar -czvf {} web_static".format(archive_path))
+    
+    # Return the archive path
+    return archive_path
