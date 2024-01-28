@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" City Module for HBNB project """
+from models.base_model import BaseModel, Base
+from sqlalchemy.ext.declarative import declarative_base
 """This is the city class"""
 from sqlalchemy.ext.declarative import declarative_base
 from models.base_model import BaseModel, Base
